@@ -1,8 +1,6 @@
-# FILTR — Article Ingestion Pipeline
+# ContextForge
 
-A Python + Supabase (Postgres) pipeline that turns a news article PDF into a structured, queryable research record — with an optional Hugging Face LLM drafting stage whose output is measured against human judgment, not trusted on faith.
-
-Built and validated end-to-end against a real case article: *"Hockney's Sense of Style Never Wavered,"* The New York Times, 2026-06-12.
+ContextForge is an AI-assisted research data pipeline that transforms unstructured article PDFs into structured, validated, and research-ready records. The system separates mechanical extraction from editorial judgment, using regex-based parsing for bibliographic fields and an instruction-tuned LLM for drafting classifications, tags, entities, and abstracts. LLM-generated metadata is sanitized against controlled vocabularies and reviewed by humans before production ingestion. A QA layer validates required fields, content quality, duplicates, entity structure, and licensing status. Human-approved annotations also serve as ground truth for evaluating LLM performance using metrics such as precision, recall, and F1. Validated records are stored in a normalized PostgreSQL/Supabase database with separate entities, tags, quotes, provenance, and access-controlled full-text data.
 
 ## Design principle
 
